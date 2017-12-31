@@ -6,5 +6,5 @@ http://facstaff.susqu.edu/brakke/evolver/evolver.html
 
 memo ... memo and tips of surface evolver for my own.  
 tut ... tutorial code of surface evolver.  
-prac ... I'll post my practicing code.  
+prac ... I'll post my practicing code here.  
 
