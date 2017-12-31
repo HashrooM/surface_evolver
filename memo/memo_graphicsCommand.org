@@ -1,0 +1,15 @@
+* Graphics Commands
+** The most used ones are...
+-r   rotate right by 6 degrees 
+-l   rotate left by 6 degrees
+-u   rotate up by 6 degrees  
+-d   rotate down by 6 degrees 
+-R   reset to original position
+-q   quit back to main command prompt
+
+** Displaying volume
+-v   displaying volume 
+
+** graphics output
+-P   P 3 : output as PostScript
+
