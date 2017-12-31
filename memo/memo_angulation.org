@@ -1,0 +1,10 @@
+* surface manipulation commands
+** equiangulation
+-u   quiangulation
+
+** eliminating short edge
+-t    eliminating all edges shorter than 0.05
+-o    split neck vertex to sepatate top and bottom surfaces
+
+** variables
+-A    showing all variables and assign new valeues to variables
