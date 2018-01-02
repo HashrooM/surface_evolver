@@ -1,5 +1,5 @@
 // cube.fe
-// Evolver data for minimal surface from cube.fe
+// Evolver data for minimal surface modified from cube.fe
 // no gravity, no surface tension.
 
 // my settings
@@ -9,7 +9,7 @@
 gravity_constant 0
 
 // mean curvature energy
-QUANTITY mci ENERGY METHOD mean_curvature_integral global
+QUANTITY spsmc ENERGY METHOD star_perp_sq_mean_curvature global
 
 //-------------------------------------------------- 
 
@@ -53,8 +53,10 @@ read
 // my settings
 //-------------------------------------------------- 
 
+hessian_normal
+
 // set face density 0 (0 surface tension energy)
-set facet density 0
+set facet density 0.001
 
 //--------------------------------------------------
 
