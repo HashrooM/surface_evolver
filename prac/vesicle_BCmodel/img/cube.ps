@@ -1,0 +1,61 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 43 35 533 541
+%%Title: (cube.ps)
+%%Creator: Surface Evolver
+%%CreationDate: Fri Jan  5 17:42:03 2018
+
+%%EndComments
+% Image is in 6.80556" x 7.02778" box aligned lower left on paper.
+% Change relsize to alter relative size of labels and linewidths.
+/relsize 3.000000 def
+205.714286 205.714286 scale
+1.400000 1.400000 translate
+newpath -1.400000 -1.400000 moveto 1.400000 -1.400000 lineto 1.400000 1.400000 
+   lineto  -1.400000 1.400000 lineto closepath clip
+1 setlinecap  1 setlinejoin
+/fa { newpath setgray  moveto lineto
+            lineto closepath fill } def  % filled facet without edges 
+
+/fb {setgray 6 copy newpath moveto lineto
+            lineto closepath fill 6 2 roll 6 copy} def % filled facet with edges
+
+/fc {setgray 0 setgray .001 relsize mul setlinewidth 6 2 roll 6 copy} def % outline only
+
+/edge {relsize mul setlinewidth 0 setgray newpath moveto lineto stroke} def
+/arcedge {relsize mul setlinewidth 0 setgray newpath moveto arc stroke} def
+/ew {0.002000 edge} def  % normal string edge width
+/fw {0.002000 edge} def  % fixed edge width
+/tw {0.001500 edge} def  % triple edge width
+/ww {0.002000 edge} def  % edges on walls
+/bw {0.002500 edge} def  % bare edge width
+/gw {0.001000 edge} def  % grid edge width
+/no {pop pop pop pop} def        % no edge 
+/noc {pop pop pop pop} def        % no edge 
+ 0.77024 -0.73155 -1.18606 -0.81801 -0.20791 0.20337  0.585939  fb  gw gw gw
+ -0.20791 0.20337 0.77024 1.22474 0.77024 -0.73155  0.585939  fb  gw gw gw
+ -1.18606 -0.81801 0.77024 -0.73155 0.00000 -0.97815  0.958116  fb  gw gw gw
+ 0.77024 -0.73155 0.77024 1.22474 0.97815 0.04323  0.636383  fb  gw gw gw
+ 1.18606 -1.13829 0.77024 -0.73155 0.97815 0.04323  0.636383  fb  gw gw gw
+ 0.77024 -0.73155 1.18606 -1.13829 0.00000 -0.97815  0.958116  fb  gw gw gw
+ -1.18606 -0.81801 -1.18606 1.13829 -0.20791 0.20337  0.585939  fb  gw gw gw
+ -0.97815 -0.04323 -1.18606 -0.81801 -1.18606 1.13829  0.636383  fb  gw gw gw
+ 0.00000 -0.97815 -0.77024 -1.22474 -1.18606 -0.81801  0.958116  fb  gw gw gw
+ -1.18606 -0.81801 -0.97815 -0.04323 -0.77024 -1.22474  0.636383  fb  gw gw gw
+ -1.18606 1.13829 0.77024 1.22474 -0.20791 0.20337  0.585939  fb  gw gw gw
+ 0.00000 0.97815 -1.18606 1.13829 0.77024 1.22474  0.958116  fb  gw gw gw
+ 0.77024 1.22474 1.18606 0.81801 0.97815 0.04323  0.636383  fb  gw gw gw
+ 1.18606 0.81801 0.00000 0.97815 0.77024 1.22474  0.958116  fb  gw gw gw
+ -0.77024 0.73155 -0.97815 -0.04323 -1.18606 1.13829  0.636383  fb  gw gw gw
+ -1.18606 1.13829 0.00000 0.97815 -0.77024 0.73155  0.958116  fb  gw gw gw
+ 1.18606 -1.13829 -0.77024 -1.22474 0.00000 -0.97815  0.958116  fb  gw gw gw
+ 0.97815 0.04323 1.18606 0.81801 1.18606 -1.13829  0.636383  fb  gw gw gw
+ -0.77024 -1.22474 -0.97815 -0.04323 -0.77024 0.73155  0.636383  fb  gw gw gw
+ -0.77024 0.73155 0.00000 0.97815 1.18606 0.81801  0.958116  fb  gw gw gw
+ -0.77024 -1.22474 0.20791 -0.20337 1.18606 -1.13829  0.585939  fb  gw gw gw
+ 1.18606 -1.13829 0.20791 -0.20337 1.18606 0.81801  0.585939  fb  gw gw gw
+ 0.20791 -0.20337 -0.77024 -1.22474 -0.77024 0.73155  0.585939  fb  gw gw gw
+ 1.18606 0.81801 0.20791 -0.20337 -0.77024 0.73155  0.585939  fb  gw gw gw
+
+showpage
+
+%%EOF
