@@ -37,10 +37,10 @@ after typical evolution command,
 ```evolver
 r 3; {g 3; u 3; V}5
 ```
-we got the shape as below
+we got the shape as below  
 ![sphere](img/sphere.png)
 
-we get energy as below.
+we get energy as below.  
 ```evolver
   3. area:  6.00925576303755 energy:  13.3770803009363  scale: 0.000263792
 WARNING 1055: Volume or quantity constraints don't converge in 10 projections.
