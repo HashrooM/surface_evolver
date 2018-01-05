@@ -1,0 +1,16 @@
+# reduced volume and normalized area difference
+
+parameters which determin vesicle shape
+
+1: reduced volume ($v$)
+
+$v = 6\sqrt \pi  \displaystyle \frac{V}{A^{3/2}}$
+
+V...volume
+A...surface area
+
+2: area difference ($\Delta a$)
+
+$\Delta a = \displaystyle \frac{\int HdA}{2 \sqrt \pi A^{1/2}}$
+
+H...mean curvature
