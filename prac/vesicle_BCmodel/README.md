@@ -65,10 +65,15 @@ Body          target volume           actual volume          pressure
                  mcu                       1        1.00147014236513  -696.509013940986
 ```
 
-## Problems (20180105)
-- We cannot got proper shape by setting other values for $v$ and $\Delta a$.
-- instability induced by edges with valence 4. (use edge swap).    
+## Evolution from sphere
+Initial shape ... sphere (once gogo applied to cube.fe)  
+![initial_sphere](img/initial_sphere.png)  
+
+
+changing redv to 0.8 and adiff 1.2, we got  
+![pear](img/redv_0.8_adiff_1.2.png)  
 
 ## Next
-cube isn't appropriate for this calculation.
-we must set sphere as initial shape (original.dmp).  
+- eliminate repeted expression by using macro
+- define typical evolution command
+- make procedure to change redv.target and area_diff.target systematically

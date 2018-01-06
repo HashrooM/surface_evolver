@@ -1,4 +1,4 @@
-// vesible_BCmodel.fe
+// BCmodel_initial_cube.fe
 // emulate vesicle deformation model (BC model).
 // fixed reduced volume (redv) and area difference (area_diff).
 // surface area is fixed at initial surface area
@@ -70,4 +70,5 @@ hessian_normal
 
 // set face density 0 (0 surface tension energy)
 set facet density 0.001
+//-------------------------------------------------- 
 
