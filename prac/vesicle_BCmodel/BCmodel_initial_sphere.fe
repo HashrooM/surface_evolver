@@ -3,20 +3,7 @@
 // fixed reduced volume (redv) and area difference (area_diff).
 // surface area is fixed at initial surface area
 // (sphere which has edged with length 1 = 6.0 surface area).
-// initial shape is sphere which once "gogo" applied to cube.fe
-
-// datafilename: cube.fe
-vertices_predicted       195
-edges_predicted          577
-facets_predicted         385
-facetedges_predicted    1153
-bodies_predicted           2
-quantities_predicted            0
-method_instances_predicted      0
-// Total energy: 4.85445981487675
-SOAPFILM
-
-LINEAR
+// initial shape is sphere which once "gogo" applied to cube.fe (original.dmp)
 
 // my settings
 //-------------------------------------------------- 
@@ -26,21 +13,21 @@ gravity_constant 0
 
 // constarains
 // ------------------------------
-#define INITIALAREA 4.85 // value of facet_area global of initial sphere (cube.fe after "gogo")
+PARAMETER INITIALAREA = 4.85 // value of facet_area global of initial sphere (cube.fe after "gogo")
 
-// parameters 
-PARAMETER redv = 0.8 // reduced volume
-PARAMETER adiff = 1.2 // area difference
+// initial values of parameters (sphere shape)
+PARAMETER redv = 1.0 // reduced volume
+PARAMETER adiff = 1.0 // area difference
 
 // fix surface area
-QUANTITY f_area FIXED=INITIALAREA METHOD facet_area global
+QUANTITY f_area FIXED = INITIALAREA METHOD facet_area global
 
 // fix volume calculated from fixed area
 QUANTITY vol FIXED = (redv * INITIALAREA ** (3/2) / (6 * sqrt(pi))) METHOD facet_volume global
 
 // fixing mean curvature
 METHOD_INSTANCE mcurve METHOD mean_curvature_integral global
-QUANTITY mcu FIXED=adiff function (mcurve.value / (2 * sqrt(pi) * INITIALAREA ^ (0.5)))
+QUANTITY mcu FIXED = adiff function (mcurve.value / (2 * sqrt(pi) * INITIALAREA ^ (0.5)))
 // ------------------------------
 
 // energy to minimize : bending energy (square mean curvature)
@@ -1256,10 +1243,39 @@ read
 //my settings
 //-------------------------------------------------- 
 
-hessian_normal
-
 // set face density 0 (0 surface tension energy)
 set facet density 0.0
 
+// procedures to change target value of volume and mean curvature
+// ------------------------------
+// procedure to update a value of volume calculated from given reduced volume.
+PROCEDURE update_vol(real nredv) {
+    vol.target := (nredv * INITIALAREA ** (3/2)) / (6 * sqrt(pi));
+    redv := nredv;
+    return;
+}
+
+// procedure to update a value of mean curvature calculated from given reduced area difference.
+PROCEDURE update_mcu(real nadiff) {
+    mcu.target := nadiff;
+    adiff := nadiff;
+    return;
+}
+// ------------------------------
+
+// at first, once refine and jiggle
+r;
+
+// typical evolution command
+// ------------------------------
+gogo := {g 5; u 5; V 3}
+// ------------------------------
+
 //--------------------------------------------------
 
+// usage
+// first, give reduced volume and area difference like (initial values are both 1.0 : sphere)
+// update_vol(0.8); update_mcu(1.2);
+// here, 0.8 for reduced volume and 1.2 for area difference
+// then, evolution!!
+// gogo 100
