@@ -18,28 +18,35 @@ SOAPFILM
 
 LINEAR
 
-
 // my settings
 //-------------------------------------------------- 
-// parameter for area
-PARAMETER redv = 0.8
-PARAMETER area_diff = 1.2 
 
-// set gravity constant 0
+// no gravity, no surface tension (see read section)
 gravity_constant 0
 
-// mean curvature energy
-QUANTITY spsmc ENERGY METHOD star_perp_sq_mean_curvature global
+// constarains
+// ------------------------------
+#define INITIALAREA 4.85 // value of facet_area global of initial sphere (cube.fe after "gogo")
 
-// fixing surface area
-QUANTITY f_area FIXED=4.85 METHOD facet_area global
+// parameters 
+PARAMETER redv = 0.8 // reduced volume
+PARAMETER adiff = 1.2 // area difference
 
-// calculate volume
-QUANTITY vol FIXED = (redv * 4.85 ** (3/2) / (6 * sqrt(pi))) METHOD facet_volume global
+// fix surface area
+QUANTITY f_area FIXED=INITIALAREA METHOD facet_area global
+
+// fix volume calculated from fixed area
+QUANTITY vol FIXED = (redv * INITIALAREA ** (3/2) / (6 * sqrt(pi))) METHOD facet_volume global
 
 // fixing mean curvature
 METHOD_INSTANCE mcurve METHOD mean_curvature_integral global
-QUANTITY mcu FIXED=area_diff function (mcurve.value / (2 * sqrt(pi) * 4.85 ^ (0.5)))
+QUANTITY mcu FIXED=adiff function (mcurve.value / (2 * sqrt(pi) * INITIALAREA ^ (0.5)))
+// ------------------------------
+
+// energy to minimize : bending energy (square mean curvature)
+// ------------------------------
+QUANTITY spsmc ENERGY METHOD star_perp_sq_mean_curvature global
+// ------------------------------
 
 //-------------------------------------------------- 
 
@@ -1253,4 +1260,6 @@ hessian_normal
 
 // set face density 0 (0 surface tension energy)
 set facet density 0.0
-//-------------------------------------------------- 
+
+//--------------------------------------------------
+
