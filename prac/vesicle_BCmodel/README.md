@@ -74,4 +74,4 @@ changing redv to 0.8 and adiff 1.2, we got
 ![pear](img/redv_0.8_adiff_1.2.png)  
 
 ## Next
-test for variety values for reduced valume and area difference  
+make commands to change redv and adiff (especially adiff) gradually.  
